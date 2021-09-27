@@ -1,0 +1,20 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: cloud-consumer-order
+  zipkin:
+    base-url: http://192.168.71.128:9411
+  sleuth:
+    sampler:
+      probability: 1
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: "http://192.168.0.103:7001/eureka/"
+
+service:
+  payment: http://cloud-provider-payment

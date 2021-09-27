@@ -1,0 +1,30 @@
+server:
+  port: 3041
+
+spring:
+  application:
+    name: cloud-config-client
+  rabbitmq:
+    host: 192.168.71.128
+    port: 5672
+    username: admin
+    password: admin
+  cloud:
+    config:
+      label: master
+      name: application-remote
+      profile: dev
+      uri: http://192.168.0.103:3040
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: "http://192.168.0.103:7001/eureka/"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

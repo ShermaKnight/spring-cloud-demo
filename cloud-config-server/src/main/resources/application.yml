@@ -1,0 +1,32 @@
+server:
+  port: 3040
+
+spring:
+  application:
+    name: cloud-config-server
+  rabbitmq:
+    host: 192.168.71.128
+    port: 5672
+    username: admin
+    password: admin
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@192.168.71.128:/opt/git/cloud-config.git
+          search-paths:
+            - cloud-config
+      label: master
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: "http://192.168.0.103:7001/eureka/"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'

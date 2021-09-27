@@ -1,0 +1,28 @@
+server:
+  port: 8100
+
+spring:
+  application:
+    name: cloud-provider-stream
+  cloud:
+    stream:
+      binders:
+        defaultRabbit:
+          type: rabbit
+      bindings:
+        output:
+          destination: officeExchange
+          content-type: application/json
+          binder: defaultRabbit
+  rabbitmq:
+    host: 192.168.71.128
+    port: 5672
+    username: admin
+    password: admin
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: "http://192.168.0.103:7001/eureka/"
