@@ -9,3 +9,4 @@
 - 服务总线：bus
 - 服务熔断、降级、限流：hystrix
 - 服务配置：config
+- 服务链路追踪：zipkin、sleuth
